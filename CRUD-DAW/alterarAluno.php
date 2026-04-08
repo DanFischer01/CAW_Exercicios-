@@ -1,11 +1,7 @@
 <?php
-// Conexão simples
 $pdo = new PDO("mysql:host=localhost;dbname=escola", "root", "");
-
-// Pegar o ID do aluno que veio pela URL
 $id = $_GET['id'];
 
-// Buscar os dados atuais
 $sql = $pdo->prepare("SELECT * FROM alunos WHERE id = :id");
 $sql->bindValue(':id', $id);
 $sql->execute();
